@@ -33,13 +33,19 @@ if (isset($_GET['logout'])) {
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/61f8d3e11d.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style/style.css" />
   <link rel="icon" href="assets/brand/TitleIcon.png" type="image/png" />
-  <title>SIRental
-    <?php if ($location == 1) {
-      echo " • About";
-    } else if ($location == 2) {
-      echo " • Contact";
+  <title>
+    <?php
+    if ($location == "0") {
+      echo "SIRental";
+    } else if ($location == "1") {
+      echo "SIRental • About";
+    } else if ($location == "2") {
+      echo "SIRental • Contact";
+    } else {
+      echo $location;
     } ?>
   </title>
 </head>
@@ -55,15 +61,21 @@ if (isset($_GET['logout'])) {
           </a>
         </div>
         <ul class="navigation">
-          <li><a href="index.php" class="<?php if ($location == 0) {
+          <li>
+            <a href="index.php" class="<?php if ($location == '0') {
+                                          echo 'active';
+                                        } ?>">Home</a>
+          </li>
+          <li>
+            <a href="about.php" class="<?php if ($location == '1') {
+                                          echo 'active';
+                                        } ?>">About</a>
+          </li>
+          <li>
+            <a href="contact.php" class="<?php if ($location == '2') {
                                             echo 'active';
-                                          } ?>">Home</a></li>
-          <li><a href="about.php" class="<?php if ($location == 1) {
-                                            echo 'active';
-                                          } ?>">About</a></li>
-          <li><a href="contact.php" class="<?php if ($location == 2) {
-                                              echo 'active';
-                                            } ?>">Contact</a></li>
+                                          } ?>">Contact</a>
+          </li>
         </ul>
         <?php if (!isset($_SESSION['logged_in'])) { ?>
           <ul class="navigation">
@@ -74,9 +86,11 @@ if (isset($_GET['logout'])) {
           <?php if ($_SESSION['user_level'] == 0) { ?>
             <ul class="navigation">
               <li>
-                <img src="./assets/icon/Admin.png" alt="" width="40px" style="border-radius: 100%;">
+                <a href="profile.php">
+                  <img src="./assets/icon/Admin.png" alt="" width="40px" style="border-radius: 100%;">
+                </a>
                 <ul class="dropdown">
-                  <li type="border"><a href="">Profile</a></li>
+                  <li type="border"><a href="profile.php">Profile</a></li>
                   <li><a href="index.php?logout=1" id=logout-btn>Logout</a></li>
                 </ul>
               </li>
@@ -84,9 +98,11 @@ if (isset($_GET['logout'])) {
           <?php } else if ($_SESSION['user_level'] == 1) { ?>
             <ul class="navigation">
               <li>
-                <img src="./assets/icon/Member.png" alt="" width="40px" style="border-radius: 100%;">
+                <a href="profile.php">
+                  <img src="./assets/icon/Member.png" alt="" width="40px" style="border-radius: 100%;">
+                </a>
                 <ul class="dropdown">
-                  <li type="border"><a href="">Profile</a></li>
+                  <li type="border"><a href="/profile.php">Profile</a></li>
                   <li><a href="index.php?logout=1" id=logout-btn>Logout</a></li>
                 </ul>
               </li>
@@ -94,9 +110,11 @@ if (isset($_GET['logout'])) {
           <?php } else if ($_SESSION['user_level'] == 2) { ?>
             <ul class="navigation">
               <li>
-                <img src="./assets/icon/Customer.png" alt="" width="40px" style="border-radius: 100%;">
+                <a href="profile.php">
+                  <img src="./assets/icon/Customer.png" alt="" width="40px" style="border-radius: 100%;">
+                </a>
                 <ul class="dropdown">
-                  <li type="border"><a href="">Profile</a></li>
+                  <li type="border"><a href="/profile.php">Profile</a></li>
                   <li><a href="index.php?logout=1" id=logout-btn>Logout</a></li>
                 </ul>
               </li>

@@ -1,4 +1,4 @@
-<?php $location = 0;
+<?php $location = '0';
 include('layouts/navbar.php');
 include('layouts/sidebar.php');
 ?>
