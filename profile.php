@@ -4,6 +4,14 @@
 <?php
 $location = 'Profile';
 include("layouts/navbar.php");
+$id=$_GET['user_id'];
+
+$query="SELECT*FROM users WHERE user_id = $id";
+
+$result=mysqli_query($conn,$query);
+
+$row=mysqli_fetch_assoc($result);
+
 ?>
 
 <div class="container-profile">
@@ -16,24 +24,42 @@ include("layouts/navbar.php");
     </div>
     <!-- Masukin data -->
     <div class="profile-data">
-      <h2>Bennart Dem Gunawan</h2>
-      <p>ben@gmail.com</p>
-      <p>Laki-laki</p>
+      <h2><?php echo $row['user_name']?></h2>
+      <p><?php echo $row['user_email']?></p>
+      <p><?php if ($row['user_gender']== "M"){
+        $gender = "Male";
+      } else if ($row['user_gender']== 'F'){
+        $gender="Female";
+      } else {
+        $gender="Undefined";
+      }
+      echo $gender;
+      ?>
+      </p>
       <div class="profile-data-privacy">
         <div>
           <i class="fa-solid fa-location-dot"></i>
-          <p>Bandung</p>
+          <p><?php echo $row['user_address']?></p>
         </div>
         <div>
           <i class="fa-solid fa-phone"></i>
-          <p>Phone</p>
+          <p><?php echo $row['user_phone']?></p>
         </div>
       </div>
       <!-- Masukin sampe sini-->
+      
     </div>
-    <div class="role" type="admin">
+      <?php if ($row['user_level']== 0){
+        $role = "Admin";
+      } else if ($row['user_level']== 1){
+        $role="Member";
+      } else {
+        $role="Customer";
+      }
+      ?>
+    <div class="role" type="<?php echo $role?>">
+    <?php echo $role ?>
       <!-- if level 0 type=admin, 1=member, 2=customer-->
-      Admin
     </div>
     <!-- panggil editprofil.php?user_id=$ -->
     <a href="" class="btn-edit-profil">
