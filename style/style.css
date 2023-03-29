@@ -721,6 +721,34 @@ footer {
 }
 /* Profile End*/
 
+/* Edit Profile */
+
+.container-edit-profile {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background-color: #212121;
+  width: 100%;
+  padding-top: 10vh;
+  height: 90vh;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  align-items: center;
+}
+
+.edit-profile-form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: -15vh;
+  /* background-color: #ff0046; */
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+/* Edit Profile End */
+
 /* Manage */
 .container-manage {
   color: #212121;

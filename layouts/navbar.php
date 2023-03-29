@@ -87,11 +87,11 @@ if (isset($_GET['logout'])) {
           <?php if ($_SESSION['user_level'] == 0) { ?>
             <ul class="navigation">
               <li>
-                <a href="profile.php?user_id=<?php echo $user_id?>">
+                <a href="profile.php?user_id=<?php echo $user_id ?>">
                   <img src="./assets/icon/Admin.png" alt="" width="40px" style="border-radius: 100%;">
                 </a>
                 <ul class="dropdown">
-                  <li type="border"><a href="profile.php?user_id=<?php echo $user_id?>">Profile</a></li>
+                  <li type="border"><a href="profile.php?user_id=<?php echo $user_id ?>">Profile</a></li>
                   <li><a href="index.php?logout=1" id=logout-btn>Logout</a></li>
                 </ul>
               </li>
@@ -100,26 +100,26 @@ if (isset($_GET['logout'])) {
             <ul class="navigation">
               <li>
                 <!-- ini -->
-                <a href="profile.php?user_id=<?php echo $user_id?>">
+                <a href="profile.php?user_id=<?php echo $user_id ?>">
                   <img src="./assets/icon/Member.png" alt="" width="40px" style="border-radius: 100%;">
                 </a>
                 <ul class="dropdown">
                   <!-- ini -->
-                  <li type="border"><a href="profile.php?user_id=<?php echo $user_id?>">Profile</a></li>
+                  <li type="border"><a href="profile.php?user_id=<?php echo $user_id ?>">Profile</a></li>
                   <li><a href="index.php?logout=1" id=logout-btn>Logout</a></li>
                 </ul>
               </li>
             </ul>
-            <?php } else if ($_SESSION['user_level'] == 2) { ?>
-              <ul class="navigation">
-                <li>
+          <?php } else if ($_SESSION['user_level'] == 2) { ?>
+            <ul class="navigation">
+              <li>
                 <!-- ini -->
-                <a href="profile.php?user_id=<?php echo $user_id?>">
+                <a href="profile.php?user_id=<?php echo $user_id ?>">
                   <img src="./assets/icon/Customer.png" alt="" width="40px" style="border-radius: 100%;">
                 </a>
                 <ul class="dropdown">
                   <!-- ini -->
-                  <li type="border"><a href="profile.php?user_id=<?php echo $user_id?>">Profile</a></li>
+                  <li type="border"><a href="profile.php?user_id=<?php echo $user_id ?>">Profile</a></li>
                   <li><a href="index.php?logout=1" id=logout-btn>Logout</a></li>
                 </ul>
               </li>

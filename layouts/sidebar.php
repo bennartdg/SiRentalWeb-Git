@@ -50,13 +50,13 @@ include('server/connection.php');
         <li>
           <a href="#">
             <i class="fa-solid fa-car"></i>
-            <span class="sidebar-item">Mobil Saya</span>
+            <span class="sidebar-item">My Cars</span>
           </a>
         </li>
         <li>
           <a href="#">
             <i class="fa-solid fa-clock-rotate-left"></i>
-            <span class="sidebar-item">Riwayat Transaksi</span>
+            <span class="sidebar-item">History</span>
           </a>
         </li>
       </ul>
@@ -73,19 +73,19 @@ include('server/connection.php');
         <li>
           <a href="#">
             <i class="fa-solid fa-car"></i>
-            <span class="sidebar-item">Cari Mobil</span>
+            <span class="sidebar-item">Find Car</span>
           </a>
         </li>
         <li>
           <a href="#">
             <i class="fa-solid fa-car-on"></i>
-            <span class="sidebar-item">Saya Sewa</span>
+            <span class="sidebar-item">On Rent</span>
           </a>
         </li>
         <li>
           <a href="#">
             <i class="fa-solid fa-clock-rotate-left"></i>
-            <span class="sidebar-item">Riwayat Transaksi</span>
+            <span class="sidebar-item">History</span>
           </a>
         </li>
       </ul>
