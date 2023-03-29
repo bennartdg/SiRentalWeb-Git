@@ -48,13 +48,13 @@ if ($row['user_level'] == 0) {
     </div>
     <form action="" method="POST">
       <div class="text_field">
-        <input type="text" name="user_name" placeholder="Current Name: <?php echo $row['user_name'] ?>">
+        <input type="text" name="user_name" placeholder="Current Name: <?php echo $row['user_name'] ?>" required>
       </div>
       <div class="text_field">
-        <input type="text" name="user_address" placeholder="Current Address: <?php echo $row['user_address'] ?>">
+        <input type="text" name="user_address" placeholder="Current Address: <?php echo $row['user_address'] ?>" required>
       </div>
       <div class="text_field">
-        <input type="text" name="user_phone" placeholder="Current Phone: <?php echo $row['user_phone'] ?>">
+        <input type="text" name="user_phone" placeholder="Current Phone: <?php echo $row['user_phone'] ?>" required>
       </div>
       <div>
         <input type="submit" name="btn_submit" value="Submit">
