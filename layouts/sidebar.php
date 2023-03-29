@@ -25,13 +25,13 @@ include('server/connection.php');
           </div>
         </li>
         <li>
-          <a href="manage.php">
+          <a href="manage.php?user_level=Member">
             <i class="fa-regular fa-address-card"></i>
             <span class="sidebar-item">Member</span>
           </a>
         </li>
         <li>
-          <a href="manage.php">
+          <a href="manage.php?user_level=Customer">
             <i class="fa-solid fa-user-group fa-sm"></i>
             <span class="sidebar-item">Customer</span>
           </a>
