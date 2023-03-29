@@ -102,7 +102,7 @@ if (isset($_GET['logout'])) {
                   <img src="./assets/icon/Member.png" alt="" width="40px" style="border-radius: 100%;">
                 </a>
                 <ul class="dropdown">
-                  <li type="border"><a href="/profile.php">Profile</a></li>
+                  <li type="border"><a href="profile.php">Profile</a></li>
                   <li><a href="index.php?logout=1" id=logout-btn>Logout</a></li>
                 </ul>
               </li>
@@ -114,7 +114,7 @@ if (isset($_GET['logout'])) {
                   <img src="./assets/icon/Customer.png" alt="" width="40px" style="border-radius: 100%;">
                 </a>
                 <ul class="dropdown">
-                  <li type="border"><a href="/profile.php">Profile</a></li>
+                  <li type="border"><a href="profile.php">Profile</a></li>
                   <li><a href="index.php?logout=1" id=logout-btn>Logout</a></li>
                 </ul>
               </li>
