@@ -36,6 +36,12 @@ include('server/connection.php');
             <span class="sidebar-item">Customer</span>
           </a>
         </li>
+        <li>
+          <a href="cars.php">
+            <i class="fa-solid fa-car"></i>
+            <span class="sidebar-item">Cars</span>
+          </a>
+        </li>
       </ul>
     </div>
   <?php } else if ($user_level == 1) { ?>
@@ -48,7 +54,7 @@ include('server/connection.php');
           </div>
         </li>
         <li>
-          <a href="#">
+          <a href="cars.php">
             <i class="fa-solid fa-car"></i>
             <span class="sidebar-item">My Cars</span>
           </a>
@@ -71,7 +77,7 @@ include('server/connection.php');
           </div>
         </li>
         <li>
-          <a href="#">
+          <a href="cars.php">
             <i class="fa-solid fa-car"></i>
             <span class="sidebar-item">Find Car</span>
           </a>

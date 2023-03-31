@@ -187,6 +187,35 @@ form .text_field {
   border-radius: 9px;
 }
 
+.search_field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search_field > input {
+  width: 300px;
+  color: black;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 14px;
+  border: none;
+  background: #f0f0f0;
+  border-radius: 9px;
+  border: 2px solid #212121;
+}
+
+.find_btn {
+  background-color: #ff0046;
+  border: none;
+  color: #f0f0f0;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
 input[type="submit"] {
   width: 100%;
   height: 40px;
@@ -761,12 +790,20 @@ footer {
   background-color: #f0f0f0;
   background-image: url("../assets/background/topo-transparent.png");
   justify-content: center;
+  text-align: center;
+}
+
+.manage-head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .content-manage h1 {
   font-weight: normal;
   font-family: "Goldman", cursive !important;
-  font-size: 30px;
+  font-size: 36px;
 }
 
 .content-manage {
@@ -774,7 +811,6 @@ footer {
   font-size: 14px;
   display: flex;
   flex-direction: column;
-  /* background-color: #444444; */
   width: 80%;
 }
 
@@ -830,3 +866,145 @@ footer {
 }
 
 /* Manage End*/
+
+/* Cars */
+
+.fcardcontainer {
+  font-family: "Poppins", sans-serif;
+  padding-top: 15vh;
+  padding-left: 80px;
+  padding-bottom: 10vh;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cars_title {
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: #ff0046; */
+  width: 69%;
+}
+
+.fcardcontainer > div > div > h1 {
+  font-family: "Goldman", cursive !important;
+  font-weight: normal;
+  font-size: 36px;
+}
+
+.cards {
+  margin: 0 auto;
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: auto;
+  grid-gap: 20px;
+  padding-top: 30px;
+}
+
+.cards * {
+  box-sizing: border-box;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  color: #212121;
+  box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.1);
+  width: 250px;
+}
+
+.card img {
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  width: 100%;
+  height: 150px;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  padding: 10px 10px 5px 10px;
+  border-radius: 0 0 10px 10px;
+}
+
+.card-content div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.card-content p {
+  font-size: 12px;
+}
+
+.card-content h3 {
+  font-family: "Goldman", cursive !important;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.card-content h4 {
+  font-size: 16px;
+}
+
+.card-content h1 {
+  justify-content: center;
+  display: flex;
+  font-size: 30px;
+  font-style: italic;
+}
+
+.card-content h1 .dollar {
+  color: #ff0046;
+}
+
+.card-content h1 .tag {
+  font-size: 18px;
+  align-items: center;
+}
+
+.rent-btn {
+  background-color: #444444;
+  font-family: "Poppins", sans-serif;
+  color: #f0f0f0;
+  font-size: 16px;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.rent-btn:hover {
+  background-color: #ff0046;
+  font-family: "Poppins", sans-serif;
+  color: #f0f0f0;
+  font-size: 16px;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.merk {
+  margin: 5px 0 5px 0;
+}
+
+.type {
+  margin-bottom: 2px;
+}
+
+.price {
+  margin-top: 10px;
+}
+/* Cars End */

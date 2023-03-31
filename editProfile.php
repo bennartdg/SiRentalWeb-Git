@@ -59,6 +59,11 @@ if ($row['user_level'] == 0) {
       <div>
         <input type="submit" name="btn_submit" value="Submit">
       </div>
+      <div class="under-button-submit">
+        <div>
+          <a href="profile.php?user_id=<?php echo $id?>">Back</a>
+        </div>
+      </div>
     </form>
   </div>
 </div>
