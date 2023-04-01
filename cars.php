@@ -3,14 +3,53 @@ $location = 'Cars';
 include('layouts/navbar.php');
 include('layouts/sidebar.php');
 
+// $level = $_GET['user_level'];
+$level = $user_level;
+$id = $user_id;
 
+if ($level == 0 || $level == 2) {
+  if (isset($_POST['find']) && $_POST['keyword'] != '') {
+    $keyword = $_POST['keyword'];
+    $query = "SELECT * FROM car
+    WHERE car_brand LIKE '%$keyword%' OR
+    car_year LIKE '%$keyword%' OR
+    car_type LIKE '%$keyword%' OR
+    car_capacity LIKE '%$keyword%'";
+  } else {
+    $query = "SELECT * FROM car";
+  }
+} else {
+  if (isset($_POST['find']) && $_POST['keyword'] != '') {
+    $keyword = $_POST['keyword'];
+    $query = "SELECT * FROM car
+    WHERE user_id = $id AND
+    (car_brand LIKE '%$keyword%' OR
+    car_year LIKE '%$keyword%' OR
+    car_type LIKE '%$keyword%' OR
+    car_capacity LIKE '%$keyword%')";
+  } else {
+    $query = "SELECT * FROM car WHERE user_id = $id";
+  }
+}
+
+$result = mysqli_query($conn, $query);
 ?>
 <div class="fcardcontainer">
   <div class="cars_title">
     <!-- Kalo member My Car, kalo customer What car you need? kalo admin Member's Cars -->
-    <div>
-      <h1>What car you need?</h1>
-    </div>
+    <?php if ($level == 0) { ?>
+      <div>
+        <h1>Member's Cars</h1>
+      </div>
+      <?php } else if ($level == 1){ ?>
+        <div>
+          <h1>My Cars</h1>
+        </div>
+      <?php } else { ?>
+        <div>
+          <h1>What car you need?</h1>
+        </div>
+    <?php } ?>
     <div>
       <form action="" method="POST">
         <div class="search_field">
@@ -23,39 +62,43 @@ include('layouts/sidebar.php');
     </div>
   </div>
   <div class="cards">
-    <?php for ($i = 0; $i < 10; $i++) { ?>
+    <?php while ($row = mysqli_fetch_assoc($result)) { ?>
       <!-- Card -->
       <div class="card">
-        <img src="assets/cars/gtr.jpg" alt="" />
+        <img src="assets/cars/<?php echo $row['car_image'] ?>" alt="" />
         <div class="card-content">
           <!-- Plat -->
           <div>
-            <p>D123AA</p>
+            <p><?php echo $row['car_plate'] ?></p>
           </div>
           <!-- Plat End -->
           <!-- Brand + Year -->
           <div class="merk">
             <div>
-              <h3>Nissan GT-R</h3>
+              <h3><?php echo $row['car_brand'] ?></h3>
             </div>
             <div>
-              <p>1998</p>
+              <p><?php echo $row['car_year'] ?></p>
             </div>
           </div>
           <!-- Brand + Year End -->
           <!-- Type + Capacity -->
           <div class="type">
             <div>
-              <h4>Sedan</h4>
+              <h4><?php echo $row['car_type'] ?></h4>
             </div>
             <div>
-              <p>4 Seats</p>
+              <p><?php echo $row['car_capacity'] ?> Seats</p>
             </div>
           </div>
           <!-- Type + Capacity End-->
           <!-- Transmission -->
           <div>
-            <p>Manual</p>
+            <?php if ($row['car_transmission'] == 'M') { ?>
+              <p>Manual</p>
+            <?php } else if ($row['car_transmission'] == 'A') { ?>
+              <p>Automatic</p>
+            <?php } ?>
           </div>
           <!-- Transmission End-->
           <!-- Price + Button -->
@@ -63,17 +106,22 @@ include('layouts/sidebar.php');
             <div>
               <h1>
                 <div class="dollar">$</div>
-                <div>500</div>
+                <div><?php echo $row['car_price'] ?></div>
                 <div class="tag">/day</div>
               </h1>
             </div>
             <!-- Kalo member atau admin button delete kalau member button rent-->
-            <div><button class="rent-btn">RENT</button></div>
-            
-            <div class="col-action">
-              <a href="#" role="button" onclick="return confirm('This data will be deleted?')">
-                <i class="fa-solid fa-trash"></i>
-              </a>
+            <div>
+
+              <?php if ($level == 0 || $level == 1) { ?>
+                <div class="col-action">
+                  <a href="actionDelete.php?car_id=<?php echo $row['car_id'] ?>" role="button" onclick="return confirm('This car will be deleted?')">
+                    <i class="fa-solid fa-trash"></i>
+                  </a>
+                </div>
+              <?php } else { ?>
+                <div><button class="rent-btn">RENT</button></div>
+              <?php } ?>
             </div>
 
           </div>
