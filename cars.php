@@ -2,6 +2,8 @@
 $location = 'Cars';
 include('layouts/navbar.php');
 include('layouts/sidebar.php');
+
+
 ?>
 <div class="fcardcontainer">
   <div class="cars_title">
