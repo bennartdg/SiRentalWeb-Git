@@ -37,7 +37,7 @@ include('server/connection.php');
           </a>
         </li>
         <li>
-          <a href="cars.php">
+          <a href="cars.php?user_level=Admin">
             <i class="fa-solid fa-car"></i>
             <span class="sidebar-item">Cars</span>
           </a>
@@ -54,7 +54,7 @@ include('server/connection.php');
           </div>
         </li>
         <li>
-          <a href="cars.php">
+          <a href="cars.php?user_level=Member">
             <i class="fa-solid fa-car"></i>
             <span class="sidebar-item">My Cars</span>
           </a>
@@ -77,7 +77,7 @@ include('server/connection.php');
           </div>
         </li>
         <li>
-          <a href="cars.php">
+          <a href="cars.php?user_level=Customer">
             <i class="fa-solid fa-car"></i>
             <span class="sidebar-item">Find Car</span>
           </a>

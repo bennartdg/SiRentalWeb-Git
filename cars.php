@@ -1,11 +1,21 @@
 <?php
-$location = 'Cars';
+
+$location = $_GET['user_level'];
+
+if ($location == 'Admin') {
+  $location = 'Members Cars';
+} else if ($location == 'Member') {
+  $location = 'My Cars';
+} else {
+  $location = 'Find a Car';
+}
+
 include('layouts/navbar.php');
 include('layouts/sidebar.php');
 
-// $level = $_GET['user_level'];
 $level = $user_level;
 $id = $user_id;
+
 
 if ($level == 0 || $level == 2) {
   if (isset($_POST['find']) && $_POST['keyword'] != '') {
@@ -41,14 +51,14 @@ $result = mysqli_query($conn, $query);
       <div>
         <h1>Member's Cars</h1>
       </div>
-      <?php } else if ($level == 1){ ?>
-        <div>
-          <h1>My Cars</h1>
-        </div>
-      <?php } else { ?>
-        <div>
-          <h1>What car you need?</h1>
-        </div>
+    <?php } else if ($level == 1) { ?>
+      <div>
+        <h1>My Cars</h1>
+      </div>
+    <?php } else { ?>
+      <div>
+        <h1>What car you need?</h1>
+      </div>
     <?php } ?>
     <div>
       <form action="" method="POST">
