@@ -5,8 +5,9 @@ include('layouts/sidebar.php');
 ?>
 <div class="fcardcontainer">
   <div class="cars_title">
+    <!-- Kalo member My Car, kalo customer What car you need? kalo admin Member's Cars -->
     <div>
-      <h1>Cars</h1>
+      <h1>What car you need?</h1>
     </div>
     <div>
       <form action="" method="POST">
@@ -20,7 +21,7 @@ include('layouts/sidebar.php');
     </div>
   </div>
   <div class="cards">
-    <?php for ($i = 0; $i < 8; $i++) { ?>
+    <?php for ($i = 0; $i < 10; $i++) { ?>
       <!-- Card -->
       <div class="card">
         <img src="assets/cars/gtr.jpg" alt="" />
@@ -64,7 +65,15 @@ include('layouts/sidebar.php');
                 <div class="tag">/day</div>
               </h1>
             </div>
+            <!-- Kalo member atau admin button delete kalau member button rent-->
             <div><button class="rent-btn">RENT</button></div>
+            
+            <div class="col-action">
+              <a href="#" role="button" onclick="return confirm('This data will be deleted?')">
+                <i class="fa-solid fa-trash"></i>
+              </a>
+            </div>
+
           </div>
           <!-- Price + Button End-->
         </div>

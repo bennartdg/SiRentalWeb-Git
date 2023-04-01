@@ -1,6 +1,6 @@
 <?php
-$location = 'Profile';
-include("layouts/navbar.php");
+include('server/connection.php');
+
 $id = $_GET['user_id'];
 
 $query = "SELECT * FROM users WHERE user_id = $id";
@@ -8,6 +8,10 @@ $query = "SELECT * FROM users WHERE user_id = $id";
 $result = mysqli_query($conn, $query);
 
 $row = mysqli_fetch_assoc($result);
+
+$location = 'Profile • ';
+$location .= $row['user_name'];
+include("layouts/navbar.php");
 
 ?>
 
@@ -55,7 +59,7 @@ $row = mysqli_fetch_assoc($result);
     <div class="role" type="<?php echo $role ?>">
       <?php echo $role ?>
     </div>
-    <a href="editProfile.php?user_id=<?php echo $row['user_id']?>" class="btn-edit-profil">
+    <a href="editProfile.php?user_id=<?php echo $row['user_id'] ?>" class="btn-edit-profil">
       <div>Edit Profile</div>
     </a>
   </div>

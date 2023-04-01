@@ -1,6 +1,6 @@
 <?php
-$location = "Edit Profile";
-include("layouts/navbar.php");
+include('server/connection.php');
+
 $id = $_GET['user_id'];
 
 $query = "SELECT * FROM users WHERE user_id = $id";
@@ -8,6 +8,10 @@ $query = "SELECT * FROM users WHERE user_id = $id";
 $result = mysqli_query($conn, $query);
 
 $row = mysqli_fetch_assoc($result);
+
+$location = "Edit Profile • ";
+$location .= $row['user_name'];
+include("layouts/navbar.php");
 
 if (isset($_POST['btn_submit'])) {
   $username = $_POST['user_name'];
