@@ -25,18 +25,26 @@ CREATE TABLE IF NOT EXISTS `car` (
   `user_id` int(11) NOT NULL,
   `car_plate` varchar(15) NOT NULL,
   `car_brand` varchar(20) NOT NULL,
-  `car_type` varchar(10) NOT NULL DEFAULT '0',
-  `car_capacity` int(11) NOT NULL DEFAULT 0,
-  `car_transmission` char(1) NOT NULL DEFAULT '0',
-  `car_year` int(11) NOT NULL DEFAULT 0,
+  `car_type` varchar(10) NOT NULL,
+  `car_capacity` int(11) NOT NULL,
+  `car_transmission` char(1) NOT NULL,
+  `car_year` int(11) NOT NULL,
   `car_price` double NOT NULL,
   `car_status` int(11) NOT NULL,
+  `car_image` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`car_id`),
   KEY `FK_car_users` (`user_id`),
   CONSTRAINT `FK_car_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=1006 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table sirentalweb.car: ~0 rows (approximately)
+-- Dumping data for table sirentalweb.car: ~6 rows (approximately)
+INSERT INTO `car` (`car_id`, `user_id`, `car_plate`, `car_brand`, `car_type`, `car_capacity`, `car_transmission`, `car_year`, `car_price`, `car_status`, `car_image`) VALUES
+	(1000, 2, 'D1111GTR', 'Nissan Skyline GT-R', 'Sedan', 4, 'M', 2000, 250, 1, 'gtr.jpg'),
+	(1001, 2, 'D4444SPR', 'Toyota Supra MK4', 'Sedan', 4, 'M', 1995, 300, 1, 'mk4.jpg'),
+	(1002, 2, 'D991PRS', 'Porsche Cayman', 'Sedan', 4, 'M', 2005, 200, 1, 'cayman.jpg'),
+	(1003, 6, 'B7777MWX', 'BMW X7', 'SUV', 6, 'A', 2022, 400, 1, 'x7.jpg'),
+	(1004, 6, 'B1661ALP', 'Toyota Alphard', 'MPV', 8, 'A', 2023, 500, 1, 'alphard.jpg'),
+	(1005, 2, 'D4646HYD', 'Hyundai Staria', 'MPV', 8, 'A', 2023, 600, 1, 'staria.jpg');
 
 -- Dumping structure for table sirentalweb.users
 CREATE TABLE IF NOT EXISTS `users` (
@@ -50,14 +58,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_level` int(11) NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `user_email` (`user_email`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table sirentalweb.users: ~4 rows (approximately)
+-- Dumping data for table sirentalweb.users: ~5 rows (approximately)
 INSERT INTO `users` (`user_id`, `user_name`, `user_email`, `user_password`, `user_address`, `user_phone`, `user_gender`, `user_level`) VALUES
 	(1, 'admin', 'admin@gmail.com', 'admin123', 'unknown', '0000', 'X', 0),
-	(2, 'ben', 'ben@gmail.com', 'ben123', 'Batam', '0895366665217', 'M', 1),
-	(3, 'hilmy', 'hilmy@gmail.com', 'hilmy123', 'Bandung', '081394627188', 'M', 2),
-	(4, 'ripa', 'ripa@gmail.com', 'ripa123', 'Tangerang', '085884606215', 'F', 2);
+	(2, 'Bennart Dem Gunawan', 'ben@gmail.com', 'ben123', 'Bandung', '0895366665217', 'M', 1),
+	(3, 'Hilmy Aiman', 'hilmy@gmail.com', 'hilmy123', 'Bandung', '08123123123123', 'M', 2),
+	(5, 'ripa', 'ripa@gmail.com', 'ripa123', 'Bojong Koneng', '08123123123123', 'F', 2),
+	(6, 'Fahri Aqila', 'fahri@gmail.com', 'fahri123', 'Subang', '085951712344', 'M', 1);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
