@@ -43,6 +43,7 @@ if ($level == 0 || $level == 2) {
 }
 
 $result = mysqli_query($conn, $query);
+$numRow = mysqli_num_rows($result);
 ?>
 <div class="fcardcontainer">
   <div class="cars_title">
@@ -63,6 +64,9 @@ $result = mysqli_query($conn, $query);
     <div>
       <form action="" method="POST">
         <div class="search_field">
+          <div class="search_icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
           <input type="text" name="keyword" placeholder="Find">
           <div>
             <button class="find_btn" name="find"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -72,73 +76,87 @@ $result = mysqli_query($conn, $query);
     </div>
   </div>
   <div class="cards">
-    <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-      <!-- Card -->
-      <div class="card">
-        <img src="assets/cars/<?php echo $row['car_image'] ?>" alt="" />
-        <div class="card-content">
-          <!-- Plat -->
-          <div>
-            <p><?php echo $row['car_plate'] ?></p>
-          </div>
-          <!-- Plat End -->
-          <!-- Brand + Year -->
-          <div class="merk">
+    <?php if ($numRow != 0) { ?>
+      <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+        <!-- Card -->
+        <div class="card">
+          <img src="assets/cars/<?php echo $row['car_image'] ?>" alt="" />
+          <div class="card-content">
+            <!-- Plat -->
             <div>
-              <h3><?php echo $row['car_brand'] ?></h3>
+              <p><?php echo $row['car_plate'] ?></p>
             </div>
-            <div>
-              <p><?php echo $row['car_year'] ?></p>
+            <!-- Plat End -->
+            <!-- Brand + Year -->
+            <div class="merk">
+              <div>
+                <h3><?php echo $row['car_brand'] ?></h3>
+              </div>
+              <div>
+                <p><?php echo $row['car_year'] ?></p>
+              </div>
             </div>
-          </div>
-          <!-- Brand + Year End -->
-          <!-- Type + Capacity -->
-          <div class="type">
-            <div>
-              <h4><?php echo $row['car_type'] ?></h4>
+            <!-- Brand + Year End -->
+            <!-- Type + Capacity -->
+            <div class="type">
+              <div>
+                <h4><?php echo $row['car_type'] ?></h4>
+              </div>
+              <div>
+                <p><?php echo $row['car_capacity'] ?> Seats</p>
+              </div>
             </div>
+            <!-- Type + Capacity End-->
+            <!-- Transmission -->
             <div>
-              <p><?php echo $row['car_capacity'] ?> Seats</p>
-            </div>
-          </div>
-          <!-- Type + Capacity End-->
-          <!-- Transmission -->
-          <div>
-            <?php if ($row['car_transmission'] == 'M') { ?>
-              <p>Manual</p>
-            <?php } else if ($row['car_transmission'] == 'A') { ?>
-              <p>Automatic</p>
-            <?php } ?>
-          </div>
-          <!-- Transmission End-->
-          <!-- Price + Button -->
-          <div class="price">
-            <div>
-              <h1>
-                <div class="dollar">$</div>
-                <div><?php echo $row['car_price'] ?></div>
-                <div class="tag">/day</div>
-              </h1>
-            </div>
-            <!-- Kalo member atau admin button delete kalau member button rent-->
-            <div>
-
-              <?php if ($level == 0 || $level == 1) { ?>
-                <div class="col-action">
-                  <a href="actionDelete.php?car_id=<?php echo $row['car_id'] ?>" role="button" onclick="return confirm('This car will be deleted?')">
-                    <i class="fa-solid fa-trash"></i>
-                  </a>
-                </div>
-              <?php } else { ?>
-                <div><button class="rent-btn">RENT</button></div>
+              <?php if ($row['car_transmission'] == 'M') { ?>
+                <p>Manual</p>
+              <?php } else if ($row['car_transmission'] == 'A') { ?>
+                <p>Automatic</p>
+              <?php } ?>
+              <?php if ($level == 0) { ?>
+                <h6>M.id: <?php echo $row['user_id'] ?></h6>
               <?php } ?>
             </div>
-
+            <!-- Transmission End-->
+            <!-- Price + Button -->
+            <div class="price">
+              <div>
+                <h1>
+                  <div class="dollar">$</div>
+                  <div><?php echo $row['car_price'] ?></div>
+                  <div class="tag">/day</div>
+                </h1>
+              </div>
+              <!-- Kalo member atau admin button delete kalau member button rent-->
+              <div>
+                <?php if ($level == 0 || $level == 1) { ?>
+                  <div class="col-action">
+                    <a href="actionDelete.php?car_id=<?php echo $row['car_id'] ?>" role="button" onclick="return confirm('This car will be deleted?')">
+                      <i class="fa-solid fa-trash"></i>
+                    </a>
+                  </div>
+                <?php } else { ?>
+                  <div><button class="rent-btn">RENT</button></div>
+                <?php } ?>
+              </div>
+            </div>
+            <!-- Price + Button End-->
           </div>
-          <!-- Price + Button End-->
         </div>
+        <!-- Card End -->
+      <?php } ?>
+    <?php } else { ?>
+      <div class="empty">
+        <img src="assets/background/EmptyIcon.png" alt="">
+        <?php if ($level == 0) { ?>
+          <h2>All Members Do not have a Car!</h2>
+        <?php } else if ($level == 1) { ?>
+          <h2>You Don't have a Car!</h2>
+        <?php } else { ?>
+          <h2>No Car Available!</h2>
+        <?php } ?>
       </div>
-      <!-- Card End -->
     <?php } ?>
   </div>
 </div>

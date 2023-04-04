@@ -201,19 +201,27 @@ form .text_field {
   font-size: 14px;
   border: none;
   background: #f0f0f0;
-  border-radius: 9px;
+  border-radius: 0 5px 5px 0;
   border: 2px solid #212121;
 }
 
 .find_btn {
-  background-color: #ff0046;
+  display: none;
+  background-color: #f0f0f0;
   border: none;
   color: #f0f0f0;
   padding: 10px;
   margin: 10px;
   border-radius: 5px;
   font-size: 15px;
-  cursor: pointer;
+}
+
+.search_icon {
+  background-color: #212121;
+  color: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px 0 0 5px;
+  border: 1px solid #212121;
 }
 
 input[type="submit"] {
@@ -888,6 +896,7 @@ footer {
   align-items: center;
   /* background-color: #ff0046; */
   width: 69%;
+  margin-bottom: 4px;
 }
 
 .fcardcontainer > div > div > h1 {
@@ -1006,5 +1015,22 @@ footer {
 
 .price {
   margin-top: 10px;
+}
+
+.empty {
+  display: flex;
+  position: static;
+  left: -50;
+  top: -50;
+  align-items: center;
+  flex-direction: column;
+  /* background-color: #444444; */
+  width: 1000px;
+  height: 500px;
+  color: #444444;
+}
+
+.empty img {
+  width: 50%;
 }
 /* Cars End */

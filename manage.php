@@ -43,6 +43,9 @@ $result = mysqli_query($conn, $q);
         <div>
           <form action="" method="POST">
             <div class="search_field">
+              <div class="search_icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
               <input type="text" name="keyword" placeholder="Find">
               <div>
                 <button class="find_btn" name="find"><i class="fa-solid fa-magnifying-glass"></i></button>
