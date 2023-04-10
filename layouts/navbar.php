@@ -113,12 +113,10 @@ if (isset($_GET['logout'])) {
           <?php } else if ($_SESSION['user_level'] == 2) { ?>
             <ul class="navigation">
               <li>
-                <!-- ini -->
                 <a href="profile.php?user_id=<?php echo $user_id ?>">
                   <img src="./assets/icon/Customer.png" alt="" width="40px" style="border-radius: 100%;">
                 </a>
                 <ul class="dropdown">
-                  <!-- ini -->
                   <li type="border"><a href="profile.php?user_id=<?php echo $user_id ?>">Profile</a></li>
                   <li><a href="index.php?logout=1" id=logout-btn>Logout</a></li>
                 </ul>

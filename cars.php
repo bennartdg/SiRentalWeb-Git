@@ -47,7 +47,6 @@ $numRow = mysqli_num_rows($result);
 ?>
 <div class="fcardcontainer">
   <div class="cars_title">
-    <!-- Kalo member My Car, kalo customer What car you need? kalo admin Member's Cars -->
     <?php if ($level == 0) { ?>
       <div>
         <h1>Member's Cars</h1>
@@ -128,7 +127,6 @@ $numRow = mysqli_num_rows($result);
                   <div class="tag">/day</div>
                 </h1>
               </div>
-              <!-- Kalo member atau admin button delete kalau member button rent-->
               <div>
                 <?php if ($level == 0 || $level == 1) { ?>
                   <div class="col-action">
