@@ -1,7 +1,7 @@
 <?php
 include 'server/connection.php';
 
-if ($_GET['user_id'] != 0) {
+if ($_GET['user_id'] != null) {
 	$id = $_GET['user_id'];
 
 	$query = "DELETE FROM users WHERE user_id = '$id'";
