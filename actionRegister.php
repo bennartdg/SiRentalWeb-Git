@@ -12,13 +12,22 @@ if (isset($_POST['register_btn'])) {
   $gender = $_POST['user_gender'];
   $level = $_POST['user_level'];
 
-  if ($password != $confirm_password) {
-    header('location: register.php?error=Password does not match! Try Again!');
+  $q = "SELECT * FROM users WHERE user_email='$email'";
+
+  $result = mysqli_query($conn, $q);
+  $numRow = mysqli_num_rows($result);
+
+  if ($numRow != 0) {
+    header('location: register.php?error=Email is already Used!');
   } else {
-    $query = "INSERT INTO users VALUES ('', '$username', '$email', '$password', '$address', '$phone', '$gender', '$level')";
+    if ($password != $confirm_password) {
+      header('location: register.php?error=Password does not match! Try Again!');
+    } else {
+      $query = "INSERT INTO users VALUES ('', '$username', '$email', '$password', '$address', '$phone', '$gender', '$level')";
 
-    mysqli_query($conn, $query);
+      mysqli_query($conn, $query);
 
-    header("location: register.php?message=Account created successfully!");
+      header("location: register.php?message=Account created successfully!");
+    }
   }
 }
