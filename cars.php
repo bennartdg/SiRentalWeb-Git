@@ -1,6 +1,8 @@
 <?php
+include('layouts/navbar.php');
+include('layouts/sidebar.php');
 
-$location = $_GET['user_level'];
+$location = $user_level;
 
 if ($location == 'Admin') {
   $location = 'Members Cars';
@@ -10,8 +12,6 @@ if ($location == 'Admin') {
   $location = 'Find a Car';
 }
 
-include('layouts/navbar.php');
-include('layouts/sidebar.php');
 
 $level = $user_level;
 $id = $user_id;

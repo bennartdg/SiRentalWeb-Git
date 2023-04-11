@@ -8,7 +8,7 @@ if ($_GET['user_id'] != 0) {
 
 	mysqli_query($conn, $query);
 
-	header('location: manage.php ');
+	header('location: manage.php');
 	die();
 } else if ($_GET['car_id'] != null) {
 	$id = $_GET['car_id'];
@@ -17,6 +17,6 @@ if ($_GET['user_id'] != 0) {
 
 	mysqli_query($conn, $query);
 
-	header('location: car.php ');
+	header('location: cars.php');
 	die();
 }
