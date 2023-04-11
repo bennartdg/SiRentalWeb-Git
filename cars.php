@@ -1,17 +1,17 @@
 <?php
+
+$location = 'Cars';
+
+// if ($location == 0) {
+//   $location = 'Members Cars';
+// } else if ($location == 1) {
+//   $location = 'My Cars';
+// } else {
+//   $location = 'Find a Car';
+// }
+
 include('layouts/navbar.php');
 include('layouts/sidebar.php');
-
-$location = $user_level;
-
-if ($location == 'Admin') {
-  $location = 'Members Cars';
-} else if ($location == 'Member') {
-  $location = 'My Cars';
-} else {
-  $location = 'Find a Car';
-}
-
 
 $level = $user_level;
 $id = $user_id;
