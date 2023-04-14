@@ -1,5 +1,7 @@
 <?php
 include('server/connection.php');
+include('actionLoginRequired.php');
+
 
 $id = $_GET['user_id'];
 

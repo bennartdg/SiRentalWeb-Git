@@ -3,6 +3,15 @@ $location = "Manage";
 include('layouts/navbar.php');
 include('layouts/sidebar.php');
 
+if (!isset($_SESSION['logged_in'])) {
+  include('actionLoginRequired.php');
+} else {
+  if ($user_level != 0) {
+    header('location: index.php?message=You are not loggin as an Admin!');
+  }
+}
+
+
 $level = $_GET['user_level'];
 
 if ($level == "Member") {

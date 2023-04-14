@@ -12,6 +12,7 @@ $location = 'Cars';
 
 include('layouts/navbar.php');
 include('layouts/sidebar.php');
+include('actionLoginRequired.php');
 
 $level = $user_level;
 $id = $user_id;
